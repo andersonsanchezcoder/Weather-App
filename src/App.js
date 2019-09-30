@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import LocationList from './components/LocationList';
+import ForecastExtended from './components/ForecastExtended';
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
@@ -9,12 +10,22 @@ import './App.scss';
 
 const cities = ['Caracas, ve', 'Bogota,col', 'Buenos Aires,ar', 'Madrid, es', 'Lima, pe'];
 
-function App() {
+class App extends Component {
 
-  const handleSelectedLocation = (city) => {
+  constructor(){
+    super();
+    this.state = {
+      city: null
+    };
+  }
+
+  handleSelectedLocation = city => {
+    this.setState({ city })
     console.log('bicho tocaron a:', city)
   }
 
+  render(){
+    const { city } = this.state;
   return (
     <Grid fluid>
       <Row>
@@ -30,17 +41,22 @@ function App() {
         <Col xs={12} md={6}>
           <LocationList 
               cities = { cities }
-              onSelectedLocation = { (city)=> handleSelectedLocation(city) }
+              onSelectedLocation = { (city)=> this.handleSelectedLocation(city) }
             />
         </Col>
         <Col xs={12} md={6}>
           <Paper elevation={4}>
-            <div className="details"></div>
+            <div className="details">
+              {
+                 city && <ForecastExtended city={ city }></ForecastExtended> 
+              }
+            </div>
           </Paper>
         </Col>
       </Row>
     </Grid>
-  );
+  )}
+  ;
 
   // Ejemplo de react flexbox grid
   // return(

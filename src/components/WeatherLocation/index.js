@@ -11,7 +11,6 @@ import './styles.scss'
 class WeatherLocation extends Component  {
 
   constructor(props){
-    console.log('constructor');
     super(props);
     const { city } = props;
     this.state = {
@@ -22,13 +21,10 @@ class WeatherLocation extends Component  {
 
 
   componentDidMount() {
-    console.log('cargando');
     this.updateData();
-    console.log('componentDidMount');
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
   }
 
   updateData = () => {
@@ -48,8 +44,6 @@ class WeatherLocation extends Component  {
 
   render(){
     const { onWeatherLocationClick } = this.props
-
-    console.log('render');
     const { city, data } = this.state;
     return(  
       <div className = "weatherLocationWrapper" onClick = {onWeatherLocationClick}>

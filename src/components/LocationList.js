@@ -6,7 +6,6 @@ import './styles.scss';
 const LocationList = ({ cities, onSelectedLocation }) =>{
 
   const handleWeatherLocationclick = city =>{
-    console.log('pase por aca: handleWeatherLocationclick');
     onSelectedLocation(city);
   };
 

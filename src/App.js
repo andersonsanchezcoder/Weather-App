@@ -21,7 +21,6 @@ class App extends Component {
 
   handleSelectedLocation = city => {
     this.setState({ city })
-    console.log('bicho tocaron a:', city)
   }
 
   render(){

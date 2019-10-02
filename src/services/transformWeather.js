@@ -30,6 +30,7 @@ const getWeatherState = weather =>{
 }
 
 const transformWeather = (data) => {
+// Revisar que esta ocurriendo. No están llegando los parametros que se necesitan
   return {
     city: data.name,
     data: {

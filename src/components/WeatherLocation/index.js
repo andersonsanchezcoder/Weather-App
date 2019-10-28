@@ -22,7 +22,8 @@ class WeatherLocation extends Component  {
 
   componentDidMount() {
     this.updateData();
-  }
+  }map
+  
 
   componentDidUpdate(prevProps, prevState) {
   }
